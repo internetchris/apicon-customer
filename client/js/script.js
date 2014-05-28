@@ -24,7 +24,7 @@ client.listen('message', function(evt) {
 console.log("loaded");
 
 // now connect when the user clicks the 'Connect' button
-$("#doLogin").click(function() {
+$(".chatModal").click(function() {
     var endpoint =  $("#endpoint").val();
     client.connect({
      	endpointId: endpoint
@@ -35,7 +35,8 @@ $("#doLogin").click(function() {
 // send a message to the far-end party
 $("#sendMessage").click(function(){
     // get the recipient name
-    var remote = $("#remoteId").val();
+    var remote = 'broker';//$("#remoteId").val();
+
     // make an endpoint for that recipient
     var endpoint = client.getEndpoint({"id" : remote});
     // grab the text to send
@@ -58,22 +59,45 @@ $("#endCall").click(function() {
 
 
   var html,
-  images;
-  var redSweaters = $.ajax({
-                      type: "GET",
-                      url: "/getty?search=red%20turtle%20neck%20sweater",
-                      dataType: "json",
-                      success: function (data) {
-                        images = data.Images;
-                        $.map(images.slice(0, 4), function( val, i ) {
-                          console.log(val.ThumbnailUrl);
-                          $("#red" + i).append("<img src='" + val.ThumbnailUrl + "'>");
-                        });
-                      },
-                      error: function (err) {
-                        console.err("error", err);
-                      }
-                    });
+  images,
+  url;
+ 
+if (window.location.search.indexOf('color=black') > -1) {
+    url = "/getty?search=black%20winter%20sweater";
+    $(".heading1").html("Black is the new black");
+    $(".heading2").html("MIB Sexy");
+    $(".heading3").html("When you go black...");
+} else if (window.location.search.indexOf('color=red') > -1) {
+    url = "/getty?search=red%20turtle%20neck%20sweater";
+    $(".heading1").html("Henry's Special");
+    $(".heading2").html("Rabbit Trap");
+    $(".heading3").html("Turtle by the Bay");
+}else {
+    url = "/getty?search=red%20turtle%20neck%20sweater";
+    $(".heading1").html("Turtle What?!");
+    $(".heading2").html("Turtle please?!");
+    $(".heading3").html("Check Yo Neck!");
+}
+
+  $.ajax({
+    type: "GET",
+    url: url,
+    dataType: "json",
+    success: function (data) {
+      images = data.Images;
+      var randomize = function(arr) {
+        for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+        return arr;
+      };
+      $.map(randomize(images), function( val, i ) {
+        console.log(val.ThumbnailUrl);
+        $("#red" + i).append("<img src='" + val.ThumbnailUrl + "'>");
+      });
+    },
+    error: function (err) {
+      console.err("error", err);
+    }
+  });
  
  
 

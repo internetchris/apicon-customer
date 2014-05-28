@@ -7,22 +7,28 @@
   
 <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-         
-        </div>
-        <div class="navbar-collapse collapse">
-          
-        </div><!--/.navbar-collapse -->
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+           
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="?color=black">Black Sweaters</a></li>
+              <li><a href="?color=red">Red Sweaters</a></li>
+              <li><a href="#">Your Mamma's Sweaters (coming soon)</a></li>
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
       </div>
-    </div>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -38,19 +44,22 @@
       <!-- Example row of columns -->
       <div class="row" id="redSweaters">
         <div class="col-md-4">
-          <h2>Turtle What?!</h2>
+
+          <h2 class="heading1"></h2>
+
           <div id="red1"></div>
           <p> This posh ensemble meshes the mish mash of neck covered goodness. The cotton knit cover your neck sweetly like some homestyle syrup on southern style pan fried cakes. Mmmm delicious! 
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Turtle Please!?</h2>
+          <h2 class="heading2"></h2>
           <div id="red2"></div>
           <p>Why bare your neck when you can cover up with this cozy entartment. You want a tart neck? Heck no! De tart your neck with cashmere silkiness.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Check Yo Neck!</h2>
+
+          <h2 class="heading3"></h2>
           <div id="red3"></div>
           <p>The danger of writing code first and then at 2:37 AM writing your marketing copy is that you may not make the most sense. Is this about the sweater or my API?</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
@@ -68,8 +77,7 @@
               </div>
               <div class="modal-body">
                 <div class="form-group">
-                  <input id="endpoint" type="text" class="form-control" placeholder="Your Name"/>
-                  <input id="doLogin" class="btn btn-default" type="button" value="Connect" />
+                  <input id="endpoint" type="text" class="form-control" value="websiteUser" style="display:none"/>
                 </div>
 
                 

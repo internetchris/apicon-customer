@@ -1,14 +1,13 @@
 {
   "name": "apicon-customer",
   "description": "apicon app",
-  "version": "0.0.1-6",
+  "version": "0.0.1-7",
   "private": true,
   "dependencies": {
     "futures": ">=2.1.0",
     "express": "^4.3.1",
     "ejs": "^1.0.0",
     "getty": "0.0.2",
-    "node-curl": "^0.3.1",
     "request": "^2.36.0"
   },
   "subdomain": "witty",

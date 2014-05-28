@@ -5,7 +5,6 @@ var express = require("express"),
 
 var wit = require('./client/js/wit');
 var url = require('url');
-var curl = require('node-curl');
 var request = require('request');
 
 
@@ -16,6 +15,14 @@ var request = require('request');
 
 app.get("/", function(req, res) {
   res.render("../client/index.ejs");
+});
+
+app.get("/broker", function(req, res) {
+  res.render("../client/broker.ejs");
+});
+
+app.get("/agent", function(req, res) {
+  res.render("../client/agent.ejs");
 });
 
 app.get("/wit", function(req, res){

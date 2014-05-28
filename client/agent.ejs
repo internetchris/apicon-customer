@@ -4,20 +4,20 @@
         <script src="https://saucer-section.brightstream.io/min/brightstream-0.0.1-47-g1b2ad49.min.js"></script>
      
     </head>
-   <body>
-    <h3 id="status">Not Connected</h3>
+   <body style="background-color: #f9a98f">
     <div id="login">
-        User Name:
-        <input id="endpoint" type="text" />
-        <input id="doLogin" type="button" value="Connect" />
+        <h1>Sales Agent Portal</h1>
+         <h4 id="status">Not Connected</h4>
+        <input id="endpoint" type="text" value="SalesAgent" style="display:none" />
+        <input id="doLogin" class="chatModal" type="button" value="Connect Sales Agent" />
     </div>
     <div id="messaging">
         <ul id="messages"></ul><br />
        
-        <textarea id="textToSend" rows="2"></textarea><br />
+        <textarea id="textToSend" rows="12" style="width: 300px;"></textarea><br />
         <input id='sendMessage' type='button' value='Send Message' />
     </div>
-        <script src="js/broker.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
 
