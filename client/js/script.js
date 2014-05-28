@@ -66,7 +66,12 @@ if (window.location.search.indexOf('color=black') > -1) {
     $(".heading1").html("Black is the new black");
     $(".heading2").html("MIB Sexy");
     $(".heading3").html("When you go black...");
-} else {
+} else if (window.location.search.indexOf('color=red') > -1) {
+    url = "/getty?search=red%20turtle%20neck%20sweater";
+    $(".heading1").html("Henry's Special");
+    $(".heading2").html("Rabbit Trap");
+    $(".heading3").html("Turtle by the Bay");
+}else {
     url = "/getty?search=red%20turtle%20neck%20sweater";
     $(".heading1").html("Turtle What?!");
     $(".heading2").html("Turtle please?!");
