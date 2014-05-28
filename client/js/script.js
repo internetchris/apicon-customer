@@ -14,7 +14,10 @@ var client = new brightstream.Client({
 
 // listen for the 'connect' event
 client.listen('connect', function() {
-    $("#status").html("You are now connected Sweater Support!");
+	$("#status").html("You are now connected Sweater Support!");
+	if(client.endpointId!='SalesAgent'){
+		$("#messages").append("<li>Hi, what can I help you with?</li>");
+	}
 });
 
 // listen for incoming messages
@@ -43,6 +46,7 @@ $("#sendMessage").click(function(){
     var messageText = $("#textToSend").val();
     // send it
     endpoint.sendMessage({"message" : messageText});
+	$("#messages").append("<li style='color: red;'>"+messageText+"</li>");
 });
 
 // Create a call
