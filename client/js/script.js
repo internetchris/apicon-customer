@@ -58,22 +58,40 @@ $("#endCall").click(function() {
 
 
   var html,
-  images;
-  var redSweaters = $.ajax({
-                      type: "GET",
-                      url: "/getty?search=red%20turtle%20neck%20sweater",
-                      dataType: "json",
-                      success: function (data) {
-                        images = data.Images;
-                        $.map(images.slice(0, 4), function( val, i ) {
-                          console.log(val.ThumbnailUrl);
-                          $("#red" + i).append("<img src='" + val.ThumbnailUrl + "'>");
-                        });
-                      },
-                      error: function (err) {
-                        console.err("error", err);
-                      }
-                    });
+  images,
+  url;
+ 
+if (window.location.search.indexOf('color=black') > -1) {
+    url = "/getty?search=black%20winter%20sweater";
+    $(".heading1").html("Black is the new black");
+    $(".heading2").html("MIB Sexy");
+    $(".heading3").html("When you go black...");
+} else {
+    url = "/getty?search=red%20turtle%20neck%20sweater";
+    $(".heading1").html("Turtle What?!");
+    $(".heading2").html("Turtle please?!");
+    $(".heading3").html("Check Yo Neck!");
+}
+
+  $.ajax({
+    type: "GET",
+    url: url,
+    dataType: "json",
+    success: function (data) {
+      images = data.Images;
+      var randomize = function(arr) {
+        for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+        return arr;
+      };
+      $.map(randomize(images), function( val, i ) {
+        console.log(val.ThumbnailUrl);
+        $("#red" + i).append("<img src='" + val.ThumbnailUrl + "'>");
+      });
+    },
+    error: function (err) {
+      console.err("error", err);
+    }
+  });
  
  
 
