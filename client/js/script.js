@@ -36,7 +36,7 @@ $("#doLogin").click(function() {
 $("#sendMessage").click(function(){
 
     // get the recipient name
-    var remote = $("#remoteId").val();
+    var remote = 'broker';//$("#remoteId").val();
 
     // make an endpoint for that recipient
     var endpoint = client.getEndpoint({"id" : remote});
