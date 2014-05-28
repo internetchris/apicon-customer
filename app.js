@@ -5,6 +5,8 @@ var express = require("express"),
 
 var wit = require('./client/js/wit');
 var url = require('url');
+var curl = require('node-curl');
+var request = require('request');
 
 
 
@@ -32,6 +34,20 @@ app.get("/wit", function(req, res){
 });
 
 
-
+app.get("/getty", function(req, res) {
+  var options = {
+    url: 'http://connect.gettyimages.com/cr1/images?phrase='+req.query.search.replace(" ", "%20"),
+    headers: {
+        'Api-Key': 'mzqtmcrk8bpsx9jfr9c9y47x'
+    }
+  };
+  function callback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+        var info = JSON.parse(body);
+        res.json(info);
+    }
+  }
+  request(options, callback);
+});
 
 console.log('Server running at http://127.0.0.1:8766/');

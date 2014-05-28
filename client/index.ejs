@@ -1,24 +1,116 @@
 <html>
     <head>
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script src="https://saucer-section.brightstream.io/min/brightstream-0.0.1-47-g1b2ad49.min.js"></script>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
      
     </head>
-   <body>
-    <h3 id="status">Not Connected</h3>
-    <div id="login">
-        User Name:
-        <input id="endpoint" type="text" />
-        <input id="doLogin" type="button" value="Connect" />
+  
+<body>
+
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+           
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="?color=black">Black Sweaters</a></li>
+              <li><a href="/">Red Sweaters</a></li>
+              <li><a href="#">Your Mamma's Sweaters (coming soon)</a></li>
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Telly's Turtle Your Neck!</h1>
+        <p>You've got a neck. That neck needs to be covered in stylish comfort and snazzy appeal. That's where we come in.</p>
+        <p class="tagline">"We've got your neck"</p>
+        <p><a class="btn btn-primary btn-lg chatModal" role="button" data-toggle="modal" data-target="#chatModal">Chat with us now! &raquo;</a></p>
+      </div>
     </div>
-    <div id="messaging">
-        <ul id="messages"></ul><br />
-       
-        <textarea id="textToSend" rows="2"></textarea><br />
-        <input id='sendMessage' type='button' value='Send Message' />
-    </div>
-        <script src="js/script.js"></script>
-</body>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row" id="redSweaters">
+        <div class="col-md-4">
+
+          <h2 class="heading1"></h2>
+
+          <div id="red1"></div>
+          <p> This posh ensemble meshes the mish mash of neck covered goodness. The cotton knit cover your neck sweetly like some homestyle syrup on southern style pan fried cakes. Mmmm delicious! 
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2 class="heading2"></h2>
+          <div id="red2"></div>
+          <p>Why bare your neck when you can cover up with this cozy entartment. You want a tart neck? Heck no! De tart your neck with cashmere silkiness.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+
+          <h2 class="heading3"></h2>
+          <div id="red3"></div>
+          <p>The danger of writing code first and then at 2:37 AM writing your marketing copy is that you may not make the most sense. Is this about the sweater or my API?</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <!-- Modal -->
+
+        <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="status">Welcome</h4>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <input id="endpoint" type="text" class="form-control" placeholder="Your Name"/>
+                  <input id="doLogin" class="btn btn-default" type="button" value="Connect" />
+                </div>
+
+                
+                <div class="form-group" id="messaging">
+                    <ul id="messages"></ul><br />
+      
+                    <textarea id="textToSend" class="form-control" rows="3" placeholder="type your message here"></textarea><br />
+                    
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input id='sendMessage' class="btn btn-primary" type='button' value='Send Message' />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+
+  </body>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://saucer-section.brightstream.io/min/brightstream-0.0.1-47-g1b2ad49.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
 </html>
 
 
