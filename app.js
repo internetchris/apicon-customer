@@ -46,6 +46,4 @@ app.get("/getty", function(req, res) {
   request(options, callback);
 });
 
-
-
 console.log('Server running at http://127.0.0.1:8766/');
