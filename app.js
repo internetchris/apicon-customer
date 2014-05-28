@@ -1,12 +1,12 @@
 var express = require("express"),
   app = express(),
-  server = app.listen(process.env.PORT || 8766);
+  server = app.listen(process.env.PORT || 3000);
 
 
 var wit = require('./client/js/wit');
 var url = require('url');
 var request = require('request');
-
+var db = require('orchestrate')("d930f037-8028-4643-9fd7-b521cd6f6788");
 
 
   app.set("view options", {layout: false});
@@ -36,6 +36,16 @@ app.get("/wit", function(req, res){
     });
 });
 
+app.get("/message", function(req, res) {
+  db.put('collection', 'latestChat', {
+  "message": req.query.message,
+  }).then(function (result) {
+    console.log("successful orchestrate post");
+    }).fail(function (err) {
+
+  })
+})
+
 
 app.get("/getty", function(req, res) {
   var options = {
@@ -53,4 +63,4 @@ app.get("/getty", function(req, res) {
   request(options, callback);
 });
 
-console.log('Server running at http://127.0.0.1:8766/');
+console.log('Server running at http://turle.com:3000/');

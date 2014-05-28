@@ -1,5 +1,6 @@
 // here's the App ID value from the portal:
 var appid = "cead35c7-ad9b-46dc-9094-721186413931";
+var messageState = [];
 
 // create a client object using the App ID value from Step 2
 var client = new brightstream.Client({
@@ -23,6 +24,9 @@ client.listen('connect', function() {
 // listen for incoming messages
 client.listen('message', function(evt) {
     $("#messages").append("<li>"+evt.message.message+"</li>");
+     messageState.push(evt.message.message);
+     sendToOrchestrate(messageState);
+
 });
 console.log("loaded");
 
@@ -44,10 +48,27 @@ $("#sendMessage").click(function(){
     var endpoint = client.getEndpoint({"id" : remote});
     // grab the text to send
     var messageText = $("#textToSend").val();
+    messageState.push(messageText);
+    sendToOrchestrate(messageState);
     // send it
     endpoint.sendMessage({"message" : messageText});
 	$("#messages").append("<li style='color: red;'>"+messageText+"</li>");
 });
+
+// send to orchestrate
+function sendToOrchestrate (messages) {
+  $.ajax({
+    type: "GET",
+    url: "/message",
+    data: {message: messages},
+    success: function (data) {
+      map.console("successfully pushed to Orchestrate")
+    },
+    error: function (err) {
+      console.err("error", err);
+    }
+  });
+}
 
 // Create a call
 $("#makeCall").click(function() {

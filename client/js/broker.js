@@ -36,10 +36,10 @@ client.listen('message', function(evt) {
 	}
 	if(ep.state == "live_chat"){//TODO passing the client id
 		sendMessage("SalesAgent", evt.message.message);
-	}else{
-		ep.messages.push(evt.message.message);
+	}else {
 		sendMessageToWit(evt.message.endpointId, evt.message.message);
 	}
+	ep.messages.push(evt.message.message);
     $("#messages").append("<li> message from client "+evt.message.endpointId+" and the message is :: "+evt.message.message+"</li>");
 });
 
@@ -66,9 +66,9 @@ function getRelevantMessage(resp){
 	if(resp.outcome != undefined && resp.outcome.intent != undefined && resp.outcome.intent == "sweaters"){
 		if(resp.outcome != undefined && resp.outcome.entities != undefined && resp.outcome.entities.color != undefined ){
 			if(resp.outcome.entities.color.value == "red"){
-				return "You can find these at <a target='_blank' href='http://"+window.location.host+"?color=red'>"+'http://'+window.location.host+'?color=red </a>';
+				return "Yes, you can find these at <a target='_blank' href='http://"+window.location.host+"?color=red'>"+'http://'+window.location.host+'?color=red </a>';
 			}else if (resp.outcome.entities.color.value == "black"){
-				return "You can find these at <a target='_blank' href='http://"+window.location.host+"?color=black'>"+'http://'+window.location.host+'?color=black </a>';
+				return "Yes, you can find these at <a target='_blank' href='http://"+window.location.host+"?color=black'>"+'http://'+window.location.host+'?color=black </a>';
 			}
 		}
 	}
