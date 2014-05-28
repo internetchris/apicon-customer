@@ -5,7 +5,6 @@ var express = require("express"),
 
 var wit = require('./client/js/wit');
 var url = require('url');
-var curl = require('node-curl');
 var request = require('request');
 
 
