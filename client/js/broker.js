@@ -66,9 +66,9 @@ function getRelevantMessage(resp){
 	if(resp.outcome != undefined && resp.outcome.intent != undefined && resp.outcome.intent == "sweaters"){
 		if(resp.outcome != undefined && resp.outcome.entities != undefined && resp.outcome.entities.color != undefined ){
 			if(resp.outcome.entities.color.value == "red"){
-				return "./red.html";
+				return "You can find these at <a target='_blank' href='http://"+window.location.host+"?color=red'>"+'http://'+window.location.host+'?color=red </a>';
 			}else if (resp.outcome.entities.color.value == "black"){
-				return "./black.html";
+				return "You can find these at <a target='_blank' href='http://"+window.location.host+"?color=black'>"+'http://'+window.location.host+'?color=black </a>';
 			}
 		}
 	}
