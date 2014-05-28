@@ -35,7 +35,8 @@ $("#doLogin").click(function() {
 // send a message to the far-end party
 $("#sendMessage").click(function(){
     // get the recipient name
-    var remote = $("#remoteId").val();
+    var remote = 'broker';//$("#remoteId").val();
+
     // make an endpoint for that recipient
     var endpoint = client.getEndpoint({"id" : remote});
     // grab the text to send
