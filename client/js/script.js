@@ -14,7 +14,7 @@ var client = new brightstream.Client({
 
 // listen for the 'connect' event
 client.listen('connect', function() {
-    $("#status").html("Connected to Brightstream!");
+    $("#status").html("You are now connected Sweater Support!");
 });
 
 // listen for incoming messages
@@ -34,16 +34,12 @@ $("#doLogin").click(function() {
 
 // send a message to the far-end party
 $("#sendMessage").click(function(){
-
     // get the recipient name
     var remote = $("#remoteId").val();
-
     // make an endpoint for that recipient
     var endpoint = client.getEndpoint({"id" : remote});
-
     // grab the text to send
     var messageText = $("#textToSend").val();
-
     // send it
     endpoint.sendMessage({"message" : messageText});
 });
