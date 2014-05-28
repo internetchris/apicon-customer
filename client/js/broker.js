@@ -11,7 +11,7 @@ var client = new brightstream.Client({
 
 // listen for the 'connect' event
 client.listen('connect', function() {
-    $("#status").html("Broker connected to Brightstream!");
+    $("#status").html("Your Session is Connected");
 });
 
 function sendMessageFromSalesAgent(message){

@@ -21,6 +21,10 @@ app.get("/broker", function(req, res) {
   res.render("../client/broker.ejs");
 });
 
+app.get("/agent", function(req, res) {
+  res.render("../client/agent.ejs");
+});
+
 app.get("/wit", function(req, res){
   var queryObject = url.parse(req.url,true).query;
     var wit_request = wit.request_wit(queryObject.Body);

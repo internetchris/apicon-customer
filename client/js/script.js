@@ -24,7 +24,7 @@ client.listen('message', function(evt) {
 console.log("loaded");
 
 // now connect when the user clicks the 'Connect' button
-$("#doLogin").click(function() {
+$(".chatModal").click(function() {
     var endpoint =  $("#endpoint").val();
     client.connect({
      	endpointId: endpoint
